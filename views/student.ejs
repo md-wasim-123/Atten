@@ -1,0 +1,153 @@
+<%- include('./partial/header.ejs') %>
+    <section>
+        <nav class="navbar navbar-expand-lg nav-color " data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class=" " href="#">
+                    <div class="logo-box">
+                        <img class="" src="images/r.png" alt="this is logo images">
+                    </div>
+
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarColor01">
+                    <ul class="navbar-nav ">
+                        <a href="/">
+                            <li> <button class="btn btn-color ">Home</button></li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <!--====================================== modal  ============================ -->
+
+    <section>
+        <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-header btn-color">
+                        <h1 class="modal-title fs-5 " id="staticBackdropLabel">Add Student</h1>
+                        <i class="h3 fa-solid fa-circle-xmark" data-bs-dismiss="modal"></i>
+                    </div>
+                    <div class="modal-body bg-dark">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12 mt-1 ">
+                                    <form action="/student" method="post">
+                                        <div class="mb-3">
+                                            <label for="text" class="form-label text-white">Father's Name</label>
+                                            <input type="text" class="form-control" required name="Father_name" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="text" class="form-label text-white">Mobile Number</label>
+                                            <i class="fa-solid fa-phone"></i>
+                                            <input type="text" class="form-control" required name="phone" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="name" class="form-label text-white">Roll-Number</label>
+                                            <input type="text" class="form-control" required name="RollNumber" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="text" class="form-label text-white">Name</label>
+                                            <input type="text" class="form-control" required name="Student_name" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="text" class="form-label text-white">Birthday:</label>
+                                            <input type="date" class="form-control" required name="dob">
+                                        </div>
+                                        <button type="submit" class="btn btn-color">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container btn-group">
+        <div class="h">
+            <div class="col-lg-6 mt-5 mx-4">
+                <a href="/student/attendance">
+                    <button class="Attent-btn mx-4">Attendance </button>
+                  </a>
+            </div>
+            <div class="col-lg-6 mt-5 mx-4">
+                <button type="button" class="Attent-btn mx-4" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop1">Add Student</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="container table-responsive mt-5 z-5">
+        <table class="table text-white text-nowrap border-0">
+            <thead class="table-head border-0 ">
+                <tr>
+                    <th scope="col">Father's Name</th>
+                    <th scope="col">Mobile Number</th>
+                    <th scope="col">Roll-Number</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Birthday</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody class="table-body border-0">
+                <% dat.forEach((item)=>{ %>
+                    <tr>
+                        <td class="t-data"> <span>
+                                <%= item.Father_name %>
+                            </span></td>
+                        <td class="t-p"><span>
+                            <a href="tel:7480921259">
+                                <i class="fa-solid fa-phone"></i></a>
+                                <%= item.phone %>
+                            </span></td>
+                        <td class="t-data"><span>
+                                <%= item.RollNumber %>
+                            </span></td>
+                        <td class="t-data"><span>
+                                <%= item.Student_name %>
+                            </span></td>
+                        <td class="t-data"><span>
+                                <%= item.dob %>
+                            </span></td>
+                        <form action="/student/edit/<%= item._id %>" method="get">
+                            <td class="t-data">
+                                <button class="btn btn-secondary"> <i>
+                                <span> <i class="h6 fa-sharp fa-solid fa-eye"></i></span>
+                                        
+                                    </i></button>
+                            </td>
+                        </form>
+                        <form action="/student/delete/<%= item._id %>" method="get">
+                            <td class="t-data">
+                                
+                                <button class="btn btn-secondary"> <i>
+                                    <span><i class="h6 fa-solid fa-trash-can"></i></span>
+
+                                </i></button>
+                            </td>
+                        </form>
+
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+    <%- include('./partial/footer.ejs') %>
