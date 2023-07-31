@@ -1,6 +1,6 @@
 import userModel from "../models/userSchema.js";
 import bcrypt from 'bcrypt'
-class student{
+class student {
 
     static homeController = (req, res) => {
         res.render("index");
@@ -10,13 +10,13 @@ class student{
         res.render("registration");
     }
 
- 
+
     // read data in data base
     static getAllData = async (req, res) => {
         const dat = await userModel.find()
-        console.log(dat)
         // res.render('student')
     }
+
     static createDoc = async (req, res) => {
         //create new document using model
         const hashpassword = await bcrypt.hash(req.body.password, 10)
@@ -25,9 +25,8 @@ class student{
                 name: req.body.name,
                 email: req.body.email,
                 password: hashpassword,
-                age:req.body.age,
-                gender:req.body.gender
-
+                age: req.body.age,
+                gender: req.body.gender
             })
             await doc.save()
             res.redirect('/login')
@@ -35,21 +34,22 @@ class student{
         } catch (error) {
             console.log(error)
         }
-
     }
-    static login =async (req, res) => {
+
+    static login = async (req, res) => {
         res.render("login");
     }
+
     static verifLogin = async (req, res) => {
         try {
             const { lemail, password } = req.body
+
             // console.log(email)
             const dataFinde = await userModel.findOne({ email: lemail })
-            // console.log(dataFinde.email)
-            if (dataFinde != null)
-             {  
+            if (dataFinde != null) {
                 const isMatch = bcrypt.compare(password, dataFinde.password)
-                if (dataFinde.email == email  && isMatch) {
+
+                if (dataFinde.email == lemail && isMatch) {
                     // res.send(`successfully ${dataFinde}`)
                     res.redirect('/student')
                 }
