@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
- 
+   background-image: linear-gradient(-190deg, #000000 0%, #313131 100%);
 }
 body ,html{
  
@@ -11,7 +11,7 @@ body ,html{
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 100auto;
+  height: 100vh;
   position: relative;
 
 }
