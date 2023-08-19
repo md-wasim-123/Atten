@@ -47,9 +47,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //set routes
 app.use('/', web)
-
+app.use('/', routerStudent)
 
 app.listen(port, function () {
-    console.log(`hello run this program at http
-app.use('/', routerStudent)://localhost:${port}`);
+    console.log(`hello run this program at http://localhost:${port}`);
 })
