@@ -1,25 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-body {
+body ,html{
  
   background-image: linear-gradient(-190deg, #000000 0%, #313131 100%);
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 90vh;
+  height: 100vh;
+  position: relative;
 
 }
-main{
-   
-  background-image: linear-gradient(-190deg, #000000 0%, #313131 100%);
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 90vh;
-}
+ 
 .logo-box {
   width: 60px;
   height: 60px;
@@ -48,8 +43,7 @@ main{
   left: 0;
   width: 100%;
 }
-#footer {
-}
+ 
 .b-admin {
   border: none;
   background: #f39600;
@@ -191,7 +185,7 @@ main{
   background: linear-gradient(-20deg, #454545 0%, #4e4e4e 100%);
 }
 
-.table-body tr .t-data {
+  .t-data {
   text-align: center;
 }
 .table-body tr .t-data span {
@@ -237,6 +231,12 @@ main{
   justify-content: space-around;
 }
 @media only screen and (max-width: 600px) {
+  body{
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh; 
+  }
   .table-head {
     font-size: 1rem;
    
@@ -251,3 +251,41 @@ main{
     flex-direction: column;
   }
 }
+
+.outer{
+  overflow-y: auto;
+  height:50vh;
+  font-family: 'Bebas Neue', sans-serif;
+  }
+
+ 
+ .done{
+  background-color: #14f300;
+  color: #000000;
+  
+ }
+ #select{
+  width:12vw;
+  background: #747474;
+  margin: 0 auto;
+  color: #ffffff;
+ 
+  
+ }
+ #select option:nth-child(2){
+  font-size: 1.1rem;
+  color: rgb(0, 0, 0);
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 900;
+  background-color: #1dcb0e;
+ }
+
+ #select option:nth-child(3){
+  font-size: 1.1rem;
+  background-color: #a92200;
+  color: #000000;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 900;
+
+
+ }

@@ -1,11 +1,14 @@
-import mongoose from "mongoose";
+import mongoose, { Mongoose } from "mongoose";
 
-const attendanceStudent=new mongoose.Schema({
-    Attent:{type:String,  required:true},
-    data:{type: Date, default: Date.now }
+const attendanceStudent = new mongoose.Schema({
+    date: {
+        type: Date,
+        default: Date.now
+    },
+    attendence: []
 
 })
-const attendanceModel= mongoose.model('Attendance',attendanceStudent)
+const attendanceModel = mongoose.model('Attendance', attendanceStudent)
 
 
 export default attendanceModel

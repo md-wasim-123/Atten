@@ -1,15 +1,26 @@
 <%- include('./partial/header.ejs') %>
 
+</head>
+
+<body id="bg">
+
  <!--======================================= herro section  ============================ -->
+
  <section>
-    <div class="herro-section  z-3 position-relative">
+  <% if(msg.length > 0)  { %>
+    <div class="alert alert-danger alert-dismissible text-center fs-5" role="alert">
+      <strong> <%- msg %></strong>  
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% } %>
+    <div class="herro-section  z-3 fixed-top mt-4">
       <div class="px-4 pt-5 my-5 text-center ">
         <h1 class="display-4 fw-bold text-white">Welcome our Rahbar</h1>
-        <p class="text-white">Login page</p>
+        <p class="text-white fs-4">Only Admin Register</p>
         <div class="col-lg-6 mx-auto">
-          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5 mt-5">
             <button type="button" class="btn btn-color btn-lg px-4 me-sm-3"data-bs-toggle="modal"
-            data-bs-target="#staticBackdrop2">Click me</button>
+            data-bs-target="#staticBackdrop2">Login</button>
             <a href="/">
               <button type="button" class="btn btn-color btn-lg px-4 me-sm-3" fdprocessedid="e5mjha">Back</button></a>
           </div>
@@ -39,7 +50,7 @@
                   <form action="/login" method="post">
                     <div class="mb-3">
                       <label for="email" class="form-label text-white">Email</label>
-                      <input type="email" class="form-control" id="age" name="lemail" />
+                      <input type="email" class="form-control" id="age" name="email" />
                     </div>
                     <div class="mb-3">
                       <label for="password" class="form-label text-white">Password</label>
@@ -58,34 +69,7 @@
   </section>
 
   <!--=============================  corve footer =======================-->
-  <section>
-    <div class="corve">
-      <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 490" xmlns="http://www.w3.org/2000/svg"
-        class="transition duration-300 ease-in-out delay-150">
-        <defs>
-          <linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%">
-            <stop offset="5%" stop-color="#9900ef"></stop>
-            <stop offset="95%" stop-color="#0693e3"></stop>
-          </linearGradient>
-        </defs>
-        <path
-          d="M 0,500 C 0,500 0,166 0,166 C 68.41909996564755,143.98969426313982 136.8381999312951,121.97938852627962 196,129 C 255.1618000687049,136.02061147372038 305.0663002404671,172.07214015802128 380,172 C 454.9336997595329,171.92785984197872 554.8965991068361,135.73205084163519 639,119 C 723.1034008931639,102.26794915836481 791.3473033321884,104.99965647543799 850,116 C 908.6526966678116,127.00034352456201 957.7141875644106,146.26932325661286 1014,145 C 1070.2858124355894,143.73067674338714 1133.7959464101684,121.92305049811063 1206,122 C 1278.2040535898316,122.07694950188937 1359.1020267949157,144.0384747509447 1440,166 C 1440,166 1440,500 1440,500 Z"
-          stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="0.53"
-          class="transition-all duration-300 ease-in-out delay-150 path-0"></path>
-        <style>
-        </style>
-        <defs>
-          <linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%">
-            <stop offset="5%" stop-color="#9900ef"></stop>
-            <stop offset="95%" stop-color="#0693e3"></stop>
-          </linearGradient>
-        </defs>
-        <path
-          d="M 0,500 C 0,500 0,333 0,333 C 73.72311920302303,312.89213328753004 147.44623840604606,292.7842665750601 219,306 C 290.55376159395394,319.2157334249399 359.93816557883883,365.7550669872896 429,377 C 498.06183442116117,388.2449330127104 566.8010992785985,364.1954654757815 631,336 C 695.1989007214015,307.8045345242185 754.8574373067675,275.46307110958435 820,274 C 885.1425626932325,272.53692889041565 955.7691514943317,301.9522500858811 1017,321 C 1078.2308485056683,340.0477499141189 1130.065956715905,348.7279285468911 1199,349 C 1267.934043284095,349.2720714531089 1353.9670216420475,341.13603572655444 1440,333 C 1440,333 1440,500 1440,500 Z"
-          stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="1"
-          class="transition-all duration-300 ease-in-out delay-150 path-1"></path>
-      </svg>
-  </section>
+ 
 
 
     <%- include('./partial/footer.ejs') %>

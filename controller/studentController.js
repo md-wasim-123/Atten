@@ -1,11 +1,17 @@
 
+import session from "express-session"
 import studentModal from "../models/studentShema.js"
 
 
 class studentAttendances {
 
     static StudentHome = (req, res) => {
-        res.render('student')
+        if(req.session.email){
+            res.render('student')
+        }
+        else{
+            req.redirect("/login")
+        }
     }
     // read data in data base
     static getAllData = async (req, res) => {
