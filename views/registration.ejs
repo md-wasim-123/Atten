@@ -1,0 +1,82 @@
+<%- include('./partial/header.ejs') %>
+
+  <!--======================================= herro section  ============================ -->
+
+ 
+  <section>
+    <% if(msg.length > 0)  { %>
+      <div class="alert alert-danger alert-dismissible text-center fs-5" role="alert">
+          <strong> <%- msg %></strong>  
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+  <% } %>
+    <div class="herro-section  z-3 position-relative">
+      <div class="px-4 pt-5 my-5 text-center ">
+        <h1 class="display-4 fw-bold text-white">Welcome our Rahbar</h1>
+        <p class="text-white">All Member team Register in Rahbar Attendance</p>
+        <div class="col-lg-6 mx-auto">
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+            <button type="button" class="btn btn-color btn-lg px-4 me-sm-3" data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop1">Sing Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--====================================== modal  ============================ -->
+
+  <section>
+
+    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog ">
+        <div class="modal-content">
+          <div class="modal-header " style="background-color: black;">
+            <h1 class="modal-title fs-5 text-white btn" id="staticBackdropLabel">Registration</h1>
+            <i class="h3 fa-solid fa-circle-xmark"  data-bs-dismiss="modal" ></i>
+          </div>
+          <div class="modal-body bg-dark">
+            <div class="container">
+              <div class="row">
+              
+                <div class="col-sm-12 ">
+                  <form action="/registration" method="post">
+              
+                    <div class="mb-3">
+                      <label for="name" class="form-label text-white">Name</label>
+                      <input type="text" class="form-control"   id="name" name="name" />
+                    </div>
+                    <div class="mb-3">
+                      <label for="email" class="form-label text-white">Email</label>
+                      <input type="email" class="form-control"  id="age" name="email" />
+                    </div>
+                    <div class="mb-3">
+                      <label for="password" class="form-label text-white">Age</label>
+                      <input type="number" class="form-control"   id="password" name="age" />
+                    </div>
+                    <div class="mb-3">
+                      <label for="password" class="form-label text-white">Password</label>
+                      <input type="password" class="form-control"  id="password" name="password" />
+                    </div>
+                    <div class="mb-3">
+                     <fieldset>
+                      <label for="text" class="form-label text-white">Male</label>
+                      <input type="radio" name="gender" value="Male">
+                      <label for="text" class="form-label text-white">female</label>
+                      <input type="radio" name="gender" value="female" >
+                     </fieldset>
+                    </div>
+                    <button type="submit" class="btn btn-color">Submit</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--=============================  corve footer =======================-->
+ 
+  <%- include('./partial/footer.ejs') %>

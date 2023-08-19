@@ -1,0 +1,103 @@
+  <main style="max-height: 50vh;">
+
+    <div class="container table-responsive mt-5 z-5">
+        <table class="table text-white text-nowrap border-0">
+            <thead class="table-head border-0 ">
+                <tr>
+                    <th scope="col">Father's Name</th>
+                    <th scope="col">Mobile Number</th>
+                    <th scope="col">Roll-Number</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Birthday</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody style="height: 10px !important; overflow: scroll;">
+                <% dat.forEach((item)=>{ %>
+                    <tr>
+                        <td class="filterable-cell"> <span>
+                                <%= item.Father_name %>
+                            </span></td>
+                        <td class="t-p"><span>
+                            <a href="tel:7480921259">
+                                <i class="fa-solid fa-phone"></i></a>
+                                <%= item.phone %>
+                            </span></td>
+                        <td class="t-data"><span>
+                                <%= item.RollNumber %>
+                            </span></td>
+                        <td class="t-data"><span>
+                                <%= item.Student_name %>
+                            </span></td>
+                        <td class="t-data"><span>
+                                <%= item.dob %>
+                            </span></td>
+                        <form action="/student/edit/<%= item._id %>" method="get">
+                            <td class="t-data">
+                                <button class="btn btn-secondary"> <i>
+                                <span> <i class="h6 fa-sharp fa-solid fa-eye"></i></span>
+                                        
+                                    </i></button>
+                            </td>
+                        </form>
+                        <form action="/student/delete/<%= item._id %>" method="get">
+                            <td class="t-data">
+                                
+                                <button class="btn btn-secondary"> <i>
+                                    <span><i class="h6 fa-solid fa-trash-can"></i></span>
+
+                                </i></button>
+                            </td>
+                        </form>
+
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+
+</main>
+
+
+
+
+
+
+
+ 
+const { name, email, age, password, gender } = req.body
+// try {
+//     const hashpassword = await bcrypt.hash(req.body.password, 10)
+//     if (name && email && age && gender && password) {
+//         const user = await userModel.findOne({ email: email })
+//         if (!user) {
+//             const doc = new userModel({
+//                 name: name,
+//                 email: email,
+//                 age: age,
+//                 gender: gender,
+//                 password: hashpassword
+//             })
+//             const result = await doc.save()
+//             console.log(result)
+//             req.session.email = req.body.email
+//             req.flash("msg", "Register the successfully.....")
+//             res.redirect('/')// redirect login page
+//         }
+//         else {
+//             req.flash("msg", "User already exist")
+//         }
+
+//     } else {
+//         req.flash("msg", "All field are required..")
+//     }
+// }
+
+
+
+
+// catch (error) {
+//     console.log(error + "this message are sing up error")
+// }
