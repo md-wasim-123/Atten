@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+ 
 }
 body ,html{
  
@@ -10,7 +11,7 @@ body ,html{
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 100vh;
+  height: 100auto;
   position: relative;
 
 }
